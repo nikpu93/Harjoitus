@@ -12,6 +12,7 @@ import java.io.*;
 import org.json.*;
 import java.io.InputStream;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -24,22 +25,13 @@ import java.util.logging.Logger;
 public class Netum {
 
     Connection con = null;
+    int PlaneettojaLisatty = 0;
+    int LajejaLisatty = 0;
+    int IhmisiaLisatty = 0;
     
     public Netum () {
         connect();
-        //readPlanets();
-        //readPeople();
-        readSpecies();
-        //readMovies();
-        //readVehicles();
-        //readStarships();
-        //kasitteleJson();
-        /*JSONObject obj = getJSONObjectFromFile("planeetat.json");
-        String[] names = JSONObject.getNames(obj);
-        for (String string : names) {
-            System.out.println(string);
-        }
-        */
+        //paivitaID();
     }
     
     // Funktio tietokanta-yhteyden luomiseksi
@@ -57,12 +49,135 @@ public class Netum {
         System.out.println("Tapahtui virhe: " + e.getMessage());
         }
     }
+    /*
+    public void paivitaID() {
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rsetPlanet = stmt.executeQuery("SELECT MAX(id)FROM Planeetta");
+            ResultSet rsetLaji = stmt.executeQuery("SELECT MAX(id) FROM Lajit");
+            ResultSet rsetIhmiset = stmt.executeQuery("SELECT MAX(id) FROM Ihmiset");
+            
+            int id = rsetPlanet.getInt(1);
+            System.out.println(id);
+            if (rsetPlanet.getObject(1).toString() != null) {
+                PlaneettojaLisatty = Integer.parseInt(rsetPlanet.toString()) + 1;
+                System.out.println("moi1");
+            }
+            else {
+                PlaneettojaLisatty = 0;
+                System.out.println("moi2");
+            }
+            if (rsetLaji.getObject(1).toString() != null) {
+                LajejaLisatty = Integer.parseInt(rsetLaji.toString()) + 1;
+            }
+            else {
+                LajejaLisatty = 0;
+            }
+            if (rsetIhmiset.getObject(1).toString() != null) {
+                IhmisiaLisatty = Integer.parseInt(rsetIhmiset.toString());
+            }
+            else {
+                IhmisiaLisatty = 0;
+            }
+            
+        } catch (SQLException ex) {
+            PlaneettojaLisatty = 0;
+            LajejaLisatty = 0;
+            IhmisiaLisatty = 0;
+        } 
+    }
+    */
     
+    public void lataaJsonit () {
+        readPlanets();
+        readPeople();
+        readSpecies();
+        //readMovies();
+        //readVehicles();
+        //readStarships();
+        //kasitteleJson();
+    }
+    
+    public void insertPlanet (String name, String population, String url) {
+        try {
+            try {
+                Statement stmt = con.createStatement();
+            }catch (SQLException ex) {
+                Logger.getLogger(Netum.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            //paivitaID();  
+            String tiedot = "INSERT INTO Planeetta(id,nimi,vakiluku,url)" +
+                "VALUES(?, ?, ?, ?)";
+            PreparedStatement prstmt = con.prepareStatement(tiedot);
+            prstmt.setInt(1, PlaneettojaLisatty);
+            prstmt.setString(2, name);
+            prstmt.setString(3, population);
+            prstmt.setString(4, url);
+            prstmt.executeUpdate();
+            }
+            catch (SQLException e) {
+                System.out.println("Virhe tietokantayhteydessä");
+                System.out.println(e);
+            }
+    }
+    
+    public void insertPeople (String name, String syntynyt, String url) {
+        try {
+            try {
+                Statement stmt = con.createStatement();
+                System.out.println("moi");
+            }catch (SQLException ex) {
+                Logger.getLogger(Netum.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            String tiedot = "INSERT INTO Ihmiset(id,nimi,syntynyt,url)" +
+                "VALUES(?, ?, ?, ?)";
+            PreparedStatement prstmt = con.prepareStatement(tiedot);
+            prstmt.setInt(1, IhmisiaLisatty);
+            prstmt.setString(2, name);
+            prstmt.setString(3, syntynyt);
+            prstmt.setString(4, url);
+            prstmt.executeUpdate();
+            
+        }
+        catch (SQLException e) {
+            System.out.println("Virhe tietokantayhteydessä");
+        }
+    }
+    
+    public void insertSpecies (String name, String kotiplaneetta, String url) {
+        try {
+
+            try {
+                    Statement stmt = con.createStatement();
+            }catch (SQLException ex) {
+                Logger.getLogger(Netum.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            String tiedot = "INSERT INTO Lajit(id,nimi,kotiplaneetta,url)" +
+                    "VALUES(?, ?, ?, ?)";
+            PreparedStatement prstmt = con.prepareStatement(tiedot);
+            prstmt.setInt(1, LajejaLisatty);
+            prstmt.setString(2, name);
+            prstmt.setString(3, kotiplaneetta);
+            prstmt.setString(4, url);
+
+            prstmt.executeUpdate();
+            }
+            catch (SQLException e) {
+                System.out.println("Virhe tietokantayhteydessä");
+                System.out.println(e);
+            }
+    }
+    
+    /*
+    Luetaan planeetat.json tiedosto ja muodostetaan JSON-objekteista taulukko.
+    Taulukossa käsitellään JSON-objektit (eli planeetat) yksi kerrallaan
+    ja poimitaan niistä halutut tiedot. Lisäksi ladataan tiedot tietokantaan.
+    */
     public void readPlanets () {
         String content = readJson("planeetat.json");
         JSONObject a = new JSONObject(content);
         JSONArray results = a.getJSONArray("results");
-        System.out.println(results);
         for(int i = 0; i < results.length(); i++){
             JSONObject obj = (JSONObject) results.get(i);
             String name = obj.getString("name");
@@ -87,16 +202,18 @@ public class Netum {
                 String tiedot = "INSERT INTO Planeetta(id,nimi,vakiluku,url)" +
                         "VALUES(?, ?, ?, ?)";
                 PreparedStatement prstmt = con.prepareStatement(tiedot);
-                prstmt.setInt(1, i);
+                prstmt.setInt(1, PlaneettojaLisatty);
                 prstmt.setString(2, name);
                 prstmt.setString(3, population);
                 prstmt.setString(4, url);
 
                 prstmt.executeUpdate();
+                PlaneettojaLisatty = PlaneettojaLisatty + 1;
             }
             catch (SQLException e) {
                 System.out.println("Virhe tietokantayhteydessä");
             }
+            
             
             /*
             System.out.print(name + "/" + rotation_period + "/" + diameter);
@@ -118,11 +235,15 @@ public class Netum {
              */
         }
     }
+    /*
+    Luetaan ihmiset.json tiedosto ja muodostetaan JSON-objekteista taulukko.
+    Taulukossa käsitellään JSON-objektit (eli ihmiset) yksi kerrallaan
+    ja poimitaan niistä halutut tiedot. Lisäksi ladataan tiedot tietokantaan.
+    */
     public void readPeople() {
         String content = readJson("ihmiset.json");
         JSONObject a = new JSONObject(content);
         JSONArray results = a.getJSONArray("results");
-        System.out.println(results);
         for(int i = 0; i < results.length(); i++){
             JSONObject obj = (JSONObject) results.get(i);
             String name = obj.getString("name");
@@ -153,12 +274,13 @@ public class Netum {
                 String tiedot = "INSERT INTO Ihmiset(id,nimi,syntynyt,url)" +
                         "VALUES(?, ?, ?, ?)";
                 PreparedStatement prstmt = con.prepareStatement(tiedot);
-                prstmt.setInt(1, i);
+                prstmt.setInt(1, IhmisiaLisatty);
                 prstmt.setString(2, name);
                 prstmt.setString(3, birth_year);
                 prstmt.setString(4, url);
 
                 prstmt.executeUpdate();
+                IhmisiaLisatty = IhmisiaLisatty + 1;
             }
             catch (SQLException e) {
                 System.out.println("Virhe tietokantayhteydessä");
@@ -177,11 +299,16 @@ public class Netum {
             */
         }
     }
+    
+    /*
+    Luetaan lajit.json tiedosto ja muodostetaan JSON-objekteista taulukko.
+    Taulukossa käsitellään JSON-objektit (eli lajit) yksi kerrallaan
+    ja poimitaan niistä halutut tiedot. Lisäksi ladataan tiedot tietokantaan.
+    */
     public void readSpecies () {
         String content = readJson("lajit.json");
         JSONObject a = new JSONObject(content);
         JSONArray results = a.getJSONArray("results");
-        System.out.println(results);
         for(int i = 0; i < results.length(); i++){
             JSONObject obj = (JSONObject) results.get(i);
             String name = obj.getString("name");
@@ -209,12 +336,13 @@ public class Netum {
                 String tiedot = "INSERT INTO Lajit(id,nimi,kotiplaneetta,url)" +
                         "VALUES(?, ?, ?, ?)";
                 PreparedStatement prstmt = con.prepareStatement(tiedot);
-                prstmt.setInt(1, i);
+                prstmt.setInt(1, LajejaLisatty);
                 prstmt.setString(2, name);
                 prstmt.setString(3, homeworld);
                 prstmt.setString(4, url);
 
                 prstmt.executeUpdate();
+                LajejaLisatty = LajejaLisatty + 1;
             }
             catch (SQLException e) {
                 System.out.println("Virhe tietokantayhteydessä");
@@ -231,7 +359,11 @@ public class Netum {
             */
         }
     }
-    
+    /*
+    Luetaan elokuvat.json tiedosto ja muodostetaan JSON-objekteista taulukko.
+    Taulukossa käsitellään JSON-objektit (elokuvat) yksi kerrallaan
+    ja poimitaan niistä halutut tiedot. 
+    */
     public void readMovies () {
         String content = readJson("elokuvat.json");
         JSONObject a = new JSONObject(content);
@@ -269,7 +401,11 @@ public class Netum {
             //System.out.println(obj.getString("name"));
         }
     }
-    
+    /*
+    Luetaan ajoneuvot.json tiedosto ja muodostetaan JSON-objekteista taulukko.
+    Taulukossa käsitellään JSON-objektit (ajoneuvot) yksi kerrallaan
+    ja poimitaan niistä halutut tiedot. 
+    */
     public void readVehicles () {
         String content = readJson("ajoneuvot.json");
         JSONObject a = new JSONObject(content);
@@ -309,11 +445,15 @@ public class Netum {
         }
     }
     
+    /*
+    Luetaan avaruusalukset.json tiedosto ja muodostetaan JSON-objekteista taulukko.
+    Taulukossa käsitellään JSON-objektit (avaruusalukset) yksi kerrallaan
+    ja poimitaan niistä halutut tiedot. 
+    */
     public void readStarships () {
         String content = readJson("avaruusalukset.json");
         JSONObject a = new JSONObject(content);
         JSONArray results = a.getJSONArray("results");
-        System.out.println(results);
         for(int i = 0; i < results.length(); i++){
             JSONObject obj = (JSONObject) results.get(i);
             String name = obj.getString("name");
@@ -351,29 +491,6 @@ public class Netum {
         }
     }
     
-    public static String getJSONStringFromFile(String path) {
-        Scanner scanner;
-        InputStream in = inputStreamFromFile(path);
-        scanner = new Scanner(in);
-        String json = scanner.useDelimiter("\\Z").next();
-        scanner.close();
-        return json;
-    }
-    /*
-    public JSONObject getJSONObjectFromFile(String path) {
-        return new JSONObject(readJson());
-    }
-    */
-    public static InputStream inputStreamFromFile(String path) {
-        try {
-            InputStream inputStream = Netum.class.getResourceAsStream(path);
-            return inputStream;
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-        return null;
-    }
     public void kasitteleJson() throws IOException {
         /*String jsonData = readJson();
         System.out.println(jsonData);
@@ -417,8 +534,9 @@ public class Netum {
         return result;
     }
     
+    // Ohjelman käynnistyessä asetetaan NetumUI näkyväksi.
     public static void main(String args[]) {
-        new Netum();
+        new NetumUI().setVisible(true);
     }
     
 }
