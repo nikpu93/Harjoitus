@@ -31,12 +31,12 @@ public class NetumUI extends javax.swing.JFrame {
 
         UusiLaji = new javax.swing.JFrame();
         Lnimi = new javax.swing.JTextField();
-        Lkotiplaneetta = new javax.swing.JTextField();
         Lurl = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         LLisaatietokantaan = new javax.swing.JButton();
+        Lkotiplaneetta = new javax.swing.JComboBox<>();
         UusiPlaneetta = new javax.swing.JFrame();
         Pnimi = new javax.swing.JTextField();
         Pasukasluku = new javax.swing.JTextField();
@@ -53,6 +53,21 @@ public class NetumUI extends javax.swing.JFrame {
         Syntymäaika = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         ILisaatietokantaan = new javax.swing.JButton();
+        SivuSelaaPlaneetta = new javax.swing.JFrame();
+        ListaPlaneetta = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        ValitsePlaneetta = new javax.swing.JButton();
+        MuokkaaPlaneetta = new javax.swing.JFrame();
+        Pid = new javax.swing.JTextField();
+        PNimi = new javax.swing.JTextField();
+        PAsukas = new javax.swing.JTextField();
+        PUrl = new javax.swing.JTextField();
+        PaivitaP = new javax.swing.JButton();
+        PoistaP = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         PlaneettaLisays = new javax.swing.JButton();
         LajiLisays = new javax.swing.JButton();
         IhminenLisays = new javax.swing.JButton();
@@ -78,22 +93,23 @@ public class NetumUI extends javax.swing.JFrame {
         UusiLajiLayout.setHorizontalGroup(
             UusiLajiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(UusiLajiLayout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addGroup(UusiLajiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(55, 55, 55)
+                .addGroup(UusiLajiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(UusiLajiLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addGroup(UusiLajiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Lurl, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(UusiLajiLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Lkotiplaneetta, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(UusiLajiLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Lnimi, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(LLisaatietokantaan, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(68, Short.MAX_VALUE))
+                        .addGroup(UusiLajiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Lurl, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Lkotiplaneetta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Lnimi, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UusiLajiLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(LLisaatietokantaan, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)))
+                .addGap(57, 57, 57))
         );
         UusiLajiLayout.setVerticalGroup(
             UusiLajiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,15 +120,15 @@ public class NetumUI extends javax.swing.JFrame {
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(UusiLajiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Lkotiplaneetta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(Lkotiplaneetta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(UusiLajiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Lurl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(59, 59, 59)
+                .addGap(33, 33, 33)
                 .addComponent(LLisaatietokantaan)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         jLabel4.setText("Nimi:");
@@ -225,6 +241,136 @@ public class NetumUI extends javax.swing.JFrame {
                 .addContainerGap(84, Short.MAX_VALUE))
         );
 
+        jLabel8.setText("Valitse planeetta:");
+
+        ValitsePlaneetta.setText("Valitse");
+        ValitsePlaneetta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ValitsePlaneettaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout SivuSelaaPlaneettaLayout = new javax.swing.GroupLayout(SivuSelaaPlaneetta.getContentPane());
+        SivuSelaaPlaneetta.getContentPane().setLayout(SivuSelaaPlaneettaLayout);
+        SivuSelaaPlaneettaLayout.setHorizontalGroup(
+            SivuSelaaPlaneettaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SivuSelaaPlaneettaLayout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addGroup(SivuSelaaPlaneettaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(ListaPlaneetta, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(SivuSelaaPlaneettaLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(ValitsePlaneetta, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(80, Short.MAX_VALUE))
+        );
+        SivuSelaaPlaneettaLayout.setVerticalGroup(
+            SivuSelaaPlaneettaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SivuSelaaPlaneettaLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addComponent(ListaPlaneetta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(ValitsePlaneetta)
+                .addContainerGap(148, Short.MAX_VALUE))
+        );
+
+        Pid.setEditable(false);
+
+        PNimi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PNimiActionPerformed(evt);
+            }
+        });
+
+        PUrl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PUrlActionPerformed(evt);
+            }
+        });
+
+        PaivitaP.setText("Päivitä tiedot");
+        PaivitaP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PaivitaPActionPerformed(evt);
+            }
+        });
+
+        PoistaP.setText("Poista Planeetta");
+        PoistaP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PoistaPActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setText("ID");
+
+        jLabel11.setText("Nimi");
+
+        jLabel12.setText("Asukasluku");
+
+        jLabel13.setText("URL");
+
+        javax.swing.GroupLayout MuokkaaPlaneettaLayout = new javax.swing.GroupLayout(MuokkaaPlaneetta.getContentPane());
+        MuokkaaPlaneetta.getContentPane().setLayout(MuokkaaPlaneettaLayout);
+        MuokkaaPlaneettaLayout.setHorizontalGroup(
+            MuokkaaPlaneettaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MuokkaaPlaneettaLayout.createSequentialGroup()
+                .addContainerGap(119, Short.MAX_VALUE)
+                .addGroup(MuokkaaPlaneettaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(MuokkaaPlaneettaLayout.createSequentialGroup()
+                        .addGroup(MuokkaaPlaneettaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel13))
+                        .addGap(34, 34, 34)))
+                .addGroup(MuokkaaPlaneettaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MuokkaaPlaneettaLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(MuokkaaPlaneettaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(PUrl, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PAsukas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(MuokkaaPlaneettaLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(MuokkaaPlaneettaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Pid, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PNimi, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(211, 211, 211))
+            .addGroup(MuokkaaPlaneettaLayout.createSequentialGroup()
+                .addGap(169, 169, 169)
+                .addComponent(PaivitaP)
+                .addGap(42, 42, 42)
+                .addComponent(PoistaP)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        MuokkaaPlaneettaLayout.setVerticalGroup(
+            MuokkaaPlaneettaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MuokkaaPlaneettaLayout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addGroup(MuokkaaPlaneettaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Pid, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(MuokkaaPlaneettaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PNimi, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addGap(13, 13, 13)
+                .addGroup(MuokkaaPlaneettaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PAsukas, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(MuokkaaPlaneettaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PUrl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
+                .addGap(49, 49, 49)
+                .addGroup(MuokkaaPlaneettaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PaivitaP)
+                    .addComponent(PoistaP))
+                .addContainerGap(91, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         PlaneettaLisays.setText("Lisää Planeetta");
@@ -249,6 +395,11 @@ public class NetumUI extends javax.swing.JFrame {
         });
 
         SelaaPlaneetta.setText("Selaa Planeettoja");
+        SelaaPlaneetta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SelaaPlaneettaActionPerformed(evt);
+            }
+        });
 
         SelaaLaji.setText("Selaa Lajeja");
 
@@ -303,6 +454,13 @@ public class NetumUI extends javax.swing.JFrame {
     private void LajiLisaysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LajiLisaysActionPerformed
         UusiLaji.setVisible(true);
         UusiLaji.setSize(400,300);
+        Lkotiplaneetta.removeAllItems();
+        String [] nimet = new Netum().getPlanetNames();
+        for (int i = 0; i < nimet.length; i++) {
+            if (nimet[i] != null) {
+                Lkotiplaneetta.addItem(nimet[i]);
+            }
+        }
     }//GEN-LAST:event_LajiLisaysActionPerformed
 
     // Ladataan new Netum()-komennolla avataan yhteys tietokantaan ja ladataan
@@ -317,7 +475,7 @@ public class NetumUI extends javax.swing.JFrame {
     }//GEN-LAST:event_IhminenLisaysActionPerformed
 
     private void LLisaatietokantaanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LLisaatietokantaanActionPerformed
-        new Netum().insertSpecies(Lnimi.getText(), Lkotiplaneetta.getText(), Lurl.getText());
+        new Netum().insertSpecies(Lnimi.getText(), Lkotiplaneetta.getSelectedItem().toString(), Lurl.getText());
     }//GEN-LAST:event_LLisaatietokantaanActionPerformed
 
     private void PLisaatietokantaan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PLisaatietokantaan1ActionPerformed
@@ -327,6 +485,45 @@ public class NetumUI extends javax.swing.JFrame {
     private void ILisaatietokantaanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ILisaatietokantaanActionPerformed
         new Netum().insertPeople(Inimi.getText(), Isyntynyt.getText(), Iurl.getText());
     }//GEN-LAST:event_ILisaatietokantaanActionPerformed
+
+    private void SelaaPlaneettaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelaaPlaneettaActionPerformed
+        ListaPlaneetta.removeAllItems();
+        String [] nimet = new Netum().getPlanetNames();
+        for (int i = 0; i < nimet.length; i++) {
+            if (nimet[i] != null) {
+                ListaPlaneetta.addItem(nimet[i]);
+            }
+        }
+        SivuSelaaPlaneetta.setVisible(true);
+        SivuSelaaPlaneetta.setSize(400,300);
+    }//GEN-LAST:event_SelaaPlaneettaActionPerformed
+
+    private void ValitsePlaneettaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValitsePlaneettaActionPerformed
+        String [] tiedot = new Netum().getPlanetInfo(ListaPlaneetta.getSelectedItem().toString());
+        Pid.setText(tiedot[0]);
+        PNimi.setText(tiedot[1]);
+        PAsukas.setText(tiedot[2]);
+        PUrl.setText(tiedot[3]);
+        MuokkaaPlaneetta.setVisible(true);
+        MuokkaaPlaneetta.setSize(600,600);
+        
+    }//GEN-LAST:event_ValitsePlaneettaActionPerformed
+
+    private void PNimiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PNimiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PNimiActionPerformed
+
+    private void PUrlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PUrlActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PUrlActionPerformed
+
+    private void PaivitaPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PaivitaPActionPerformed
+        new Netum().updatePlanetInfo(Pid.getText(), PNimi.getText(), PAsukas.getText(), PUrl.getText());
+    }//GEN-LAST:event_PaivitaPActionPerformed
+
+    private void PoistaPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PoistaPActionPerformed
+        new Netum().deletePlanetInfo(Pid.getText());
+    }//GEN-LAST:event_PoistaPActionPerformed
 
     /**
      * @param args the command line arguments
@@ -372,27 +569,42 @@ public class NetumUI extends javax.swing.JFrame {
     private javax.swing.JButton LLisaatietokantaan;
     private javax.swing.JButton LajiLisays;
     private javax.swing.JButton LataaTietokantaan;
-    private javax.swing.JTextField Lkotiplaneetta;
+    private javax.swing.JComboBox<String> ListaPlaneetta;
+    private javax.swing.JComboBox<String> Lkotiplaneetta;
     private javax.swing.JTextField Lnimi;
     private javax.swing.JTextField Lurl;
+    private javax.swing.JFrame MuokkaaPlaneetta;
+    private javax.swing.JTextField PAsukas;
     private javax.swing.JButton PLisaatietokantaan1;
+    private javax.swing.JTextField PNimi;
+    private javax.swing.JTextField PUrl;
+    private javax.swing.JButton PaivitaP;
     private javax.swing.JTextField Pasukasluku;
+    private javax.swing.JTextField Pid;
     private javax.swing.JButton PlaneettaLisays;
     private javax.swing.JTextField Pnimi;
+    private javax.swing.JButton PoistaP;
     private javax.swing.JTextField Purl;
     private javax.swing.JButton SelaaLaji;
     private javax.swing.JButton SelaaPlaneetta;
+    private javax.swing.JFrame SivuSelaaPlaneetta;
     private javax.swing.JLabel Syntymäaika;
     private javax.swing.JFrame UusiIhminen;
     private javax.swing.JFrame UusiLaji;
     private javax.swing.JFrame UusiPlaneetta;
+    private javax.swing.JButton ValitsePlaneetta;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }

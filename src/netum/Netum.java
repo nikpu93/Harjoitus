@@ -25,9 +25,10 @@ import java.util.logging.Logger;
 public class Netum {
 
     Connection con = null;
-    int PlaneettojaLisatty = 0;
-    int LajejaLisatty = 0;
-    int IhmisiaLisatty = 0;
+    int PlaneettojaLisatty;
+    int LajejaLisatty;
+    int IhmisiaLisatty;
+    ResultSet rst1 = null;
     
     public Netum () {
         connect();
@@ -87,6 +88,63 @@ public class Netum {
         } 
     }
     */
+    public String[] getPlanetNames() {
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rset1 = stmt.executeQuery("SELECT * FROM planeetta");
+            String [] nimet = new String [20];
+            int i = 0;
+            while (rset1.next()) {
+                String nimi = rset1.getString("nimi");
+                nimet[i] = nimi;
+                i= i+1;
+            }
+            return nimet;
+        }
+        catch (SQLException ex) {
+            return null;   
+        }
+    }
+    
+    public String[] getPlanetInfo(String nimi) {
+        try {
+            Statement stmt = con.createStatement();
+            System.out.println(nimi);
+            ResultSet rset1 = stmt.executeQuery("SELECT * FROM planeetta WHERE nimi ='" +nimi + "'");
+            String [] tiedot = new String [4];
+            int i = 0;
+            while (rset1.next()) {
+                tiedot[0] = rset1.getString("id");
+                tiedot[1] = rset1.getString("nimi");
+                tiedot[2] = rset1.getString("vakiluku");
+                tiedot[3] = rset1.getString("url");
+            }
+            return tiedot;
+        }
+        catch (SQLException ex) {
+            return null;   
+        }
+    }
+    public void updatePlanetInfo (String id, String nimi, String asukasluku, String url) {
+        try {
+            PreparedStatement prstmt1 = con.prepareStatement("UPDATE planeetta SET nimi = ?, vakiluku = ?, url = ?"
+                    + " WHERE id ="+Integer.parseInt(id));
+            prstmt1.setString(1, nimi);
+            prstmt1.setString(2, asukasluku);
+            prstmt1.setString(3, url);
+            prstmt1.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Netum.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void deletePlanetInfo (String id) {
+        try {
+            PreparedStatement prstmt1 = con.prepareStatement("DELETE FROM planeetta WHERE id ="+Integer.parseInt(id));
+            prstmt1.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Netum.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     public void lataaJsonit () {
         readPlanets();
@@ -106,6 +164,7 @@ public class Netum {
                 Logger.getLogger(Netum.class.getName()).log(Level.SEVERE, null, ex);
             }
             //paivitaID();  
+            System.out.println(name + population + url);
             String tiedot = "INSERT INTO Planeetta(id,nimi,vakiluku,url)" +
                 "VALUES(?, ?, ?, ?)";
             PreparedStatement prstmt = con.prepareStatement(tiedot);
