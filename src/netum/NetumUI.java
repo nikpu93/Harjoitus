@@ -68,6 +68,21 @@ public class NetumUI extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        SivuSelaaLajeja = new javax.swing.JFrame();
+        ListaLajit = new javax.swing.JComboBox<>();
+        jLabel14 = new javax.swing.JLabel();
+        ValitseLaji = new javax.swing.JButton();
+        MuokkaaLajeja = new javax.swing.JFrame();
+        Lid = new javax.swing.JTextField();
+        LNimi = new javax.swing.JTextField();
+        LKotiplaneetta = new javax.swing.JTextField();
+        LUrl = new javax.swing.JTextField();
+        PaivitaL = new javax.swing.JButton();
+        PoistaL = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         PlaneettaLisays = new javax.swing.JButton();
         LajiLisays = new javax.swing.JButton();
         IhminenLisays = new javax.swing.JButton();
@@ -371,6 +386,136 @@ public class NetumUI extends javax.swing.JFrame {
                 .addContainerGap(91, Short.MAX_VALUE))
         );
 
+        jLabel14.setText("Valitse laji:");
+
+        ValitseLaji.setText("Valitse");
+        ValitseLaji.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ValitseLajiActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout SivuSelaaLajejaLayout = new javax.swing.GroupLayout(SivuSelaaLajeja.getContentPane());
+        SivuSelaaLajeja.getContentPane().setLayout(SivuSelaaLajejaLayout);
+        SivuSelaaLajejaLayout.setHorizontalGroup(
+            SivuSelaaLajejaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SivuSelaaLajejaLayout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addGroup(SivuSelaaLajejaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14)
+                    .addComponent(ListaLajit, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(SivuSelaaLajejaLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(ValitseLaji, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(80, Short.MAX_VALUE))
+        );
+        SivuSelaaLajejaLayout.setVerticalGroup(
+            SivuSelaaLajejaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SivuSelaaLajejaLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel14)
+                .addGap(18, 18, 18)
+                .addComponent(ListaLajit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(ValitseLaji)
+                .addContainerGap(148, Short.MAX_VALUE))
+        );
+
+        Lid.setEditable(false);
+
+        LNimi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LNimiActionPerformed(evt);
+            }
+        });
+
+        LUrl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LUrlActionPerformed(evt);
+            }
+        });
+
+        PaivitaL.setText("Päivitä tiedot");
+        PaivitaL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PaivitaLActionPerformed(evt);
+            }
+        });
+
+        PoistaL.setText("Poista Laji");
+        PoistaL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PoistaLActionPerformed(evt);
+            }
+        });
+
+        jLabel15.setText("ID");
+
+        jLabel16.setText("Nimi");
+
+        jLabel17.setText("Kotiplaneetta");
+
+        jLabel18.setText("URL");
+
+        javax.swing.GroupLayout MuokkaaLajejaLayout = new javax.swing.GroupLayout(MuokkaaLajeja.getContentPane());
+        MuokkaaLajeja.getContentPane().setLayout(MuokkaaLajejaLayout);
+        MuokkaaLajejaLayout.setHorizontalGroup(
+            MuokkaaLajejaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MuokkaaLajejaLayout.createSequentialGroup()
+                .addContainerGap(108, Short.MAX_VALUE)
+                .addGroup(MuokkaaLajejaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(MuokkaaLajejaLayout.createSequentialGroup()
+                        .addGroup(MuokkaaLajejaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel18))
+                        .addGap(34, 34, 34)))
+                .addGroup(MuokkaaLajejaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MuokkaaLajejaLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(MuokkaaLajejaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(LUrl, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LKotiplaneetta, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(MuokkaaLajejaLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(MuokkaaLajejaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Lid, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LNimi, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(211, 211, 211))
+            .addGroup(MuokkaaLajejaLayout.createSequentialGroup()
+                .addGap(169, 169, 169)
+                .addComponent(PaivitaL)
+                .addGap(42, 42, 42)
+                .addComponent(PoistaL)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        MuokkaaLajejaLayout.setVerticalGroup(
+            MuokkaaLajejaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MuokkaaLajejaLayout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addGroup(MuokkaaLajejaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Lid, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(MuokkaaLajejaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LNimi, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addGap(13, 13, 13)
+                .addGroup(MuokkaaLajejaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LKotiplaneetta, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(MuokkaaLajejaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LUrl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18))
+                .addGap(49, 49, 49)
+                .addGroup(MuokkaaLajejaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PaivitaL)
+                    .addComponent(PoistaL))
+                .addContainerGap(91, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         PlaneettaLisays.setText("Lisää Planeetta");
@@ -402,6 +547,11 @@ public class NetumUI extends javax.swing.JFrame {
         });
 
         SelaaLaji.setText("Selaa Lajeja");
+        SelaaLaji.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SelaaLajiActionPerformed(evt);
+            }
+        });
 
         LataaTietokantaan.setText("Lataa tietokantaan");
         LataaTietokantaan.addActionListener(new java.awt.event.ActionListener() {
@@ -446,11 +596,23 @@ public class NetumUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /*
+    "Lisää Planeetta" - painikeen painalluksen jälkeen avataan UusiPlaneetta-ikkuna,
+    jossa käyttäjä voi lisätä uusia planeettoja. 
+    */
     private void PlaneettaLisaysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlaneettaLisaysActionPerformed
         UusiPlaneetta.setVisible(true);
         UusiPlaneetta.setSize(400,300);
     }//GEN-LAST:event_PlaneettaLisaysActionPerformed
 
+    /*
+    "Lisää Laji" - painikeen painalluksen jälkeen avataan UusiLaji-ikkuna,
+    jossa käyttäjä voi lisätä uusia Lajeja. UusiLaji-ikkunalla olevasta
+    Comboboxista (Lkotiplaneetta) tyhjennetää sisältö ja täytetään uusilla
+    tietokannasta löydetyistä planeetan nimillä. Netum-luokasta kutsutaan
+    getPlanetNames-funktioa, joka palauttaa taulukkona kaikki planeetta-taulun
+    planeettojen nimet, jotka for-silmukassa lisätään Comboboxin itemeiksi. 
+    */
     private void LajiLisaysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LajiLisaysActionPerformed
         UusiLaji.setVisible(true);
         UusiLaji.setSize(400,300);
@@ -469,23 +631,55 @@ public class NetumUI extends javax.swing.JFrame {
         new Netum().lataaJsonit();
     }//GEN-LAST:event_LataaTietokantaanActionPerformed
 
+     /*
+    "Lisää Ihminen" - painikeen painalluksen jälkeen avataan UusiIhminen-ikkuna,
+    jossa käyttäjä voi lisätä uusia Ihmisiä tietokantaan. 
+    */
     private void IhminenLisaysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IhminenLisaysActionPerformed
         UusiIhminen.setVisible(true);
         UusiIhminen.setSize(400,300);
     }//GEN-LAST:event_IhminenLisaysActionPerformed
 
+     /*
+    "Lisää Tietokantaan" (laji) - painikeen painalluksen jälkeen kutsutaan Netum-
+    luokan funktioa insertSpecies. Funktiolle annetaan parametreina käyttäjän 
+    käyttöliittymään syöttämät tiedot eli nimi, kotiplaneetta ja lajin url.
+    Netum-luokan funktio tallentaa tiedot tietokantaan. 
+    */
     private void LLisaatietokantaanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LLisaatietokantaanActionPerformed
         new Netum().insertSpecies(Lnimi.getText(), Lkotiplaneetta.getSelectedItem().toString(), Lurl.getText());
     }//GEN-LAST:event_LLisaatietokantaanActionPerformed
-
+ 
+    /*
+    "Lisää Tietokantaan" (planeetta) - painikeen painalluksen jälkeen kutsutaan Netum-
+    luokan funktioa insertPlanet. Funktiolle annetaan parametreina käyttäjän 
+    käyttöliittymään syöttämät tiedot eli nimi, asukasluku ja lajin url.
+    Netum-luokan funktio tallentaa tiedot tietokantaan. 
+    */
     private void PLisaatietokantaan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PLisaatietokantaan1ActionPerformed
         new Netum().insertPlanet(Pnimi.getText(), Pasukasluku.getText(), Purl.getText());
     }//GEN-LAST:event_PLisaatietokantaan1ActionPerformed
 
+    /*
+    "Lisää Tietokantaan" (ihminen) - painikeen painalluksen jälkeen kutsutaan Netum-
+    luokan funktioa insertPeople. Funktiolle annetaan parametreina käyttäjän 
+    käyttöliittymään syöttämät tiedot eli nimi, syntymäaika ja url.
+    Netum-luokan funktio tallentaa tiedot tietokantaan. 
+    */
     private void ILisaatietokantaanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ILisaatietokantaanActionPerformed
         new Netum().insertPeople(Inimi.getText(), Isyntynyt.getText(), Iurl.getText());
     }//GEN-LAST:event_ILisaatietokantaanActionPerformed
 
+    
+    /*
+    Käyttöliittymän etusivun "Selaa Planeettoja" painiketta painettaessa 
+    poistetaan ListaPlaneetta comboboxista itemit ja täytetään combobox 
+    uusilla (mahdollisesti päivitetyillä) planeettojen nimillä. Tämä tapahtuu
+    kutsumalla Netum-luokan getPlanetNames-funktioa, joka palauttaa 
+    tietokannasta löytyvien planeettojen nimet taulukossa, jotka käsitellään
+    for-silmukassa lisäten ne comboboxin(ListaPlaneetta) itemeiksi. Sen jälkeen
+    aseteteaan Planeettojen selaussivu näkyväksi. 
+    */
     private void SelaaPlaneettaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelaaPlaneettaActionPerformed
         ListaPlaneetta.removeAllItems();
         String [] nimet = new Netum().getPlanetNames();
@@ -498,6 +692,15 @@ public class NetumUI extends javax.swing.JFrame {
         SivuSelaaPlaneetta.setSize(400,300);
     }//GEN-LAST:event_SelaaPlaneettaActionPerformed
 
+    /*
+    Planeetan selaussivulta löytyy combobox, josta käyttäjä voi valita
+    haluamansa planeetan tarkasteluun. Kun käyttäjä on valinnut comboboxista 
+    planeetan ja painaa "valitse planeetta" painiketta. Tapahtuu alla oleva
+    funktio. Funktiossa lähetetään Netum-luokan getPlanetInfo-funktiolle parametrina 
+    planeetan nimi, joka palauttaa taulukkona kaikki tämän planeetan tiedot. 
+    Funktio asettaa taulukosta tiedot MuokkaaPlaneetta-sivun kenttiin jatko-
+    käsittelyä varten ja asettaa sivun näkyväksi. 
+    */
     private void ValitsePlaneettaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValitsePlaneettaActionPerformed
         String [] tiedot = new Netum().getPlanetInfo(ListaPlaneetta.getSelectedItem().toString());
         Pid.setText(tiedot[0]);
@@ -517,13 +720,94 @@ public class NetumUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_PUrlActionPerformed
 
+    /*
+    Muokkaa Planeetta sivun "Paivita Planeetta" painikkeen painalluksen jälkeen
+    kutsutaan Netum-luokan updatePlanetInfo-funktioa, joka saa parametrina
+    tekstikentistä löytyvät id:n(ei voi muokata), nimen, asukasluvun ja urlin.
+    Funktio muokkaa tietokannan tietoja annettujen parametrien mukaisiksi.
+    */
     private void PaivitaPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PaivitaPActionPerformed
         new Netum().updatePlanetInfo(Pid.getText(), PNimi.getText(), PAsukas.getText(), PUrl.getText());
     }//GEN-LAST:event_PaivitaPActionPerformed
-
+  
+    /*
+    Muokkaa Planeetta sivun "Poista Planeetta" painikkeen painalluksen jälkeen
+    kutsutaan Netum-luokan deletePlanet-funktioa, joka saa parametrina
+    tekstikentistä löytyvät id:n. Tämän avulla funktio poistaa valitun 
+    planeetan tietokannasta.
+    */
     private void PoistaPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PoistaPActionPerformed
         new Netum().deletePlanetInfo(Pid.getText());
     }//GEN-LAST:event_PoistaPActionPerformed
+
+    
+    /*
+    Käyttöliittymän etusivun "Selaa Lajeja" painiketta painettaessa 
+    poistetaan ListaLajit comboboxista itemit ja täytetään combobox 
+    uusilla (mahdollisesti päivitetyillä) lajien nimillä. Tämä tapahtuu
+    kutsumalla Netum-luokan getSpeciesNames-funktioa, joka palauttaa 
+    tietokannasta löytyvien lajien nimet taulukossa, jotka käsitellään
+    for-silmukassa lisäten ne comboboxin(ListaLajit) itemeiksi. Sen jälkeen
+    aseteteaan Lajien selaussivu näkyväksi. 
+    */
+    private void SelaaLajiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelaaLajiActionPerformed
+        ListaLajit.removeAllItems();
+        String [] nimet = new Netum().getSpeciesNames();
+        for (int i = 0; i < nimet.length; i++) {
+            if (nimet[i] != null) {
+                ListaLajit.addItem(nimet[i]);
+            }
+        }
+        SivuSelaaLajeja.setVisible(true);
+        SivuSelaaLajeja.setSize(400,300);
+    }//GEN-LAST:event_SelaaLajiActionPerformed
+
+     /*
+    Lajin selaussivulta löytyy combobox, josta käyttäjä voi valita
+    haluamansa lajin tarkasteluun. Kun käyttäjä on valinnut comboboxista 
+    lajin ja painaa "valitse laji" painiketta. Tapahtuu alla oleva
+    funktio. Funktiossa lähetetään Netum-luokan getSpeciesInfo-funktiolle parametrina 
+    lajin nimi, joka palauttaa taulukkona kaikki tämän lajin tiedot. 
+    Funktio asettaa taulukosta tiedot MuokkaaLajeja-sivun kenttiin jatko-
+    käsittelyä varten ja asettaa sivun näkyväksi. 
+    */
+    private void ValitseLajiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValitseLajiActionPerformed
+        String [] tiedot = new Netum().getSpeciesInfo(ListaLajit.getSelectedItem().toString());
+        Lid.setText(tiedot[0]);
+        LNimi.setText(tiedot[1]);
+        LKotiplaneetta.setText(tiedot[2]);
+        LUrl.setText(tiedot[3]);
+        MuokkaaLajeja.setVisible(true);
+        MuokkaaLajeja.setSize(600,600);
+    }//GEN-LAST:event_ValitseLajiActionPerformed
+
+    private void LNimiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LNimiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LNimiActionPerformed
+
+    private void LUrlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LUrlActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LUrlActionPerformed
+
+    /*
+    Muokkaa Lajeja sivun "Paivita Laji" painikkeen painalluksen jälkeen
+    kutsutaan Netum-luokan updateSpeciesInfo-funktioa, joka saa parametrina
+    tekstikentistä löytyvät id:n(ei voi muokata), nimen, kotiplaneetan ja urlin.
+    Funktio muokkaa tietokannan tietoja annettujen parametrien mukaisiksi.
+    */
+    private void PaivitaLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PaivitaLActionPerformed
+        new Netum().updateSpeciesInfo(Lid.getText(), LNimi.getText(), LKotiplaneetta.getText(), LUrl.getText());
+    }//GEN-LAST:event_PaivitaLActionPerformed
+
+    /*
+    Muokkaa Lajeja sivun "Poista Laji" painikkeen painalluksen jälkeen
+    kutsutaan Netum-luokan deleteSpeciesInfo-funktioa, joka saa parametrina
+    tekstikentistä löytyvät id:n. Tämän avulla funktio poistaa valitun 
+    lajin tietokannasta.
+    */
+    private void PoistaLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PoistaLActionPerformed
+        new Netum().deleteSpeciesInfo(Lid.getText());
+    }//GEN-LAST:event_PoistaLActionPerformed
 
     /**
      * @param args the command line arguments
@@ -566,38 +850,53 @@ public class NetumUI extends javax.swing.JFrame {
     private javax.swing.JTextField Inimi;
     private javax.swing.JTextField Isyntynyt;
     private javax.swing.JTextField Iurl;
+    private javax.swing.JTextField LKotiplaneetta;
     private javax.swing.JButton LLisaatietokantaan;
+    private javax.swing.JTextField LNimi;
+    private javax.swing.JTextField LUrl;
     private javax.swing.JButton LajiLisays;
     private javax.swing.JButton LataaTietokantaan;
+    private javax.swing.JTextField Lid;
+    private javax.swing.JComboBox<String> ListaLajit;
     private javax.swing.JComboBox<String> ListaPlaneetta;
     private javax.swing.JComboBox<String> Lkotiplaneetta;
     private javax.swing.JTextField Lnimi;
     private javax.swing.JTextField Lurl;
+    private javax.swing.JFrame MuokkaaLajeja;
     private javax.swing.JFrame MuokkaaPlaneetta;
     private javax.swing.JTextField PAsukas;
     private javax.swing.JButton PLisaatietokantaan1;
     private javax.swing.JTextField PNimi;
     private javax.swing.JTextField PUrl;
+    private javax.swing.JButton PaivitaL;
     private javax.swing.JButton PaivitaP;
     private javax.swing.JTextField Pasukasluku;
     private javax.swing.JTextField Pid;
     private javax.swing.JButton PlaneettaLisays;
     private javax.swing.JTextField Pnimi;
+    private javax.swing.JButton PoistaL;
     private javax.swing.JButton PoistaP;
     private javax.swing.JTextField Purl;
     private javax.swing.JButton SelaaLaji;
     private javax.swing.JButton SelaaPlaneetta;
+    private javax.swing.JFrame SivuSelaaLajeja;
     private javax.swing.JFrame SivuSelaaPlaneetta;
     private javax.swing.JLabel Syntymäaika;
     private javax.swing.JFrame UusiIhminen;
     private javax.swing.JFrame UusiLaji;
     private javax.swing.JFrame UusiPlaneetta;
+    private javax.swing.JButton ValitseLaji;
     private javax.swing.JButton ValitsePlaneetta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
