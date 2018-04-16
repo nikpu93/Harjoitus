@@ -11,7 +11,11 @@ import java.sql.SQLException;
 import java.io.*;
 import org.json.*;
 import java.io.InputStream;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -25,10 +29,10 @@ public class Netum {
         connect();
         //readPlanets();
         //readPeople();
-        //readSpecies();
+        readSpecies();
         //readMovies();
         //readVehicles();
-        readStarships();
+        //readStarships();
         //kasitteleJson();
         /*JSONObject obj = getJSONObjectFromFile("planeetat.json");
         String[] names = JSONObject.getNames(obj);
@@ -74,8 +78,27 @@ public class Netum {
             String created = obj.getString("created");
             String edited = obj.getString("edited");
             String url = obj.getString("url");
+            try {
+                try {
+                    Statement stmt = con.createStatement();
+                }catch (SQLException ex) {
+                    Logger.getLogger(Netum.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                String tiedot = "INSERT INTO Planeetta(id,nimi,vakiluku,url)" +
+                        "VALUES(?, ?, ?, ?)";
+                PreparedStatement prstmt = con.prepareStatement(tiedot);
+                prstmt.setInt(1, i);
+                prstmt.setString(2, name);
+                prstmt.setString(3, population);
+                prstmt.setString(4, url);
 
+                prstmt.executeUpdate();
+            }
+            catch (SQLException e) {
+                System.out.println("Virhe tietokantayhteydessä");
+            }
             
+            /*
             System.out.print(name + "/" + rotation_period + "/" + diameter);
             System.out.print(climate + "/" + gravity + "/" + terrain);
             System.out.println(surface_water + "/" + population);
@@ -83,7 +106,16 @@ public class Netum {
             System.out.println("Residents: " + residents);
             System.out.println("Films: " + films);
             System.out.println("");
-            //System.out.println(obj.getString("name"));
+            */
+            /*
+            System.out.print(name + "/" + rotation_period + "/" + diameter);
+            System.out.print(climate + "/" + gravity + "/" + terrain);
+            System.out.println(surface_water + "/" + population);
+            System.out.println(created + "/" + edited + "/" + url);
+            System.out.println("Residents: " + residents);
+            System.out.println("Films: " + films);
+            System.out.println("");
+             */
         }
     }
     public void readPeople() {
@@ -111,8 +143,28 @@ public class Netum {
             String created = obj.getString("created");
             String edited = obj.getString("edited");
             String url = obj.getString("url");
-
             
+            try {
+                try {
+                    Statement stmt = con.createStatement();
+                }catch (SQLException ex) {
+                    Logger.getLogger(Netum.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                String tiedot = "INSERT INTO Ihmiset(id,nimi,syntynyt,url)" +
+                        "VALUES(?, ?, ?, ?)";
+                PreparedStatement prstmt = con.prepareStatement(tiedot);
+                prstmt.setInt(1, i);
+                prstmt.setString(2, name);
+                prstmt.setString(3, birth_year);
+                prstmt.setString(4, url);
+
+                prstmt.executeUpdate();
+            }
+            catch (SQLException e) {
+                System.out.println("Virhe tietokantayhteydessä");
+            }
+
+            /*
             System.out.println(name + "/" + height + "/" + mass);
             System.out.println(hair_color + "/" + skin_color + "/" + eye_color);
             System.out.println(birth_year + "/" + gender+ "/" + homeworld);
@@ -122,7 +174,7 @@ public class Netum {
             System.out.println("Vehicles: " + vehicles);
             System.out.println("Starships: " + starships);
             System.out.println("");
-            //System.out.println(obj.getString("name"));
+            */
         }
     }
     public void readSpecies () {
@@ -147,8 +199,28 @@ public class Netum {
             String created = obj.getString("created");
             String edited = obj.getString("edited");
             String url = obj.getString("url");
-
             
+            try {
+                try {
+                    Statement stmt = con.createStatement();
+                }catch (SQLException ex) {
+                    Logger.getLogger(Netum.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                String tiedot = "INSERT INTO Lajit(id,nimi,kotiplaneetta,url)" +
+                        "VALUES(?, ?, ?, ?)";
+                PreparedStatement prstmt = con.prepareStatement(tiedot);
+                prstmt.setInt(1, i);
+                prstmt.setString(2, name);
+                prstmt.setString(3, homeworld);
+                prstmt.setString(4, url);
+
+                prstmt.executeUpdate();
+            }
+            catch (SQLException e) {
+                System.out.println("Virhe tietokantayhteydessä");
+            }
+            
+            /*
             System.out.println(name + "/" + classification + "/" + designation);
             System.out.println(hair_colors + "/" + skin_colors + "/" + eye_colors);
             System.out.println(average_height + "/" + average_lifespan + "/" + homeworld + "/" + language);
@@ -156,7 +228,7 @@ public class Netum {
             System.out.println("People: " + people);
             System.out.println("Films: " + films);
             System.out.println("");
-            //System.out.println(obj.getString("name"));
+            */
         }
     }
     
